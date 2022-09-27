@@ -5,3 +5,37 @@ step-2:
 - add scaler, feature selection and model to the pipeline
 - produce a final pipeline only with the selected features
 
+*******************************************************************************************************************************************
+
+should feature selection be part of the pipeline?
+* feature selection in the pipeline
+if deploying for the first time,
+
+plus
+- don't have to hard code the predictive features
+
+However,
+- need to deploy code to engineer all features in the dataset
+- error handling and unit testing for all the code to engineering features
+
+what if re-train model frequently?
+advantages
+- quickly retrain a model on the same input data
+- no need to hard code the new set of predictive features after each re-training
+
+disadvantages:
+- lack of data versatility
+- no additional data can be fed through the pipeline
+
+in summary,
+suitable:
+- model build and refreshed on same data
+- model build and refreshed on smaller datasets
+not suitable:
+- if model built using datasets with a high feature space
+- if model constantly neriched with new data sources
+
+*******************************************************************************************************************************************
+
+when deploy model, need to include code to tackle potentially variables that present missing data where variable in a training set did not have missing.
+
