@@ -1,0 +1,60 @@
+************************ pipeline steps: training ************************
+
+# building the pipeline
+imputer = SimpleImputer(strategy='mean')
+category_encoder = OneHotEncoder()
+discretiser = KBinsDiscretizer(strategy='quantile')
+scaler=StandardScaler()
+
+train_transformed_1 = impiter.fit_transform(X_train)
+train_transformed_2 = category_encoder.fit_transform(train_transformed_1)
+train_transformed_3 = discretiser.fit_transform(train_transformed_2)
+train_final = scaler.fit_transform(train_transformed_3)
+
+model = GradientBoostingClassifier()
+
+model.fit(train_final)
+
+train_pred = model.predict(train_final)
+
+************************ pipeline steps: testing ************************
+# to score the test set
+test_transformed_1 = imputer.transform(X_test)
+test_transformed_2 = category_encoder.transform(test_transformed_1)
+test_transformed_3 = discretiser.transform(test_transformed_2)
+test_final = scaler.transform(test_transormed_3)
+
+test_pred = model.predict(test_final)
+
+************************ pipeline steps: new data ************************
+# to score new data
+new_transformed_1 = imputer.transform(new_data)
+new_transformed_2 = category_encoder.transform(test_transformed_1)
+new_transformed_3 = discretiser.transform(test_transformed_2)
+new_final = scaler.transform(test_transormed_3)
+
+new_pred = model.predict(new_final)
+
+************************************************************************************************************************************************
+solution: assembling a pipeline
+Pipeline: class that allows to run transformers and a machine learning model in sequence.
+- most steps are transformers
+- last step can be estimator
+
+from sklearn.pipeline import Pipeline
+pipeline = Pipeline([
+                    ('imputation', SimpleImputer(strategy='mean')),
+                    ('encoding', OneHotEncoder()),
+                    ('discretisation', KBinsDiscretizer(strategy='quantile')),
+                    ('scaling', StandardScaler()),
+                    ('model', GradientBoostingClassifier())
+                    ])
+                    
+# to train the model
+pipeline.train(X_train,y_train)
+
+# to score the test set
+pipeline.predict(X_test)
+
+# to score new data
+pipeline.predict(new_data)
