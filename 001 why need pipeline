@@ -1,0 +1,34 @@
+data -> data analysis -> feature engineering -> variable selection + machine learning model building -> deployment
+
+data analysis: variable types: numerical/categorical/date/time/mixed/others: dicrete/continuous/nomial/ordinal/text/image
+data analysis: variable characteristics: missing data/categorical variables/linear model assumptions/distributions/outliers/feature magnitude
+
+after data analysis, we have a general ideas on feature engineering steps
+- feature creation: extracting features from dates/from mixed variables
+- missing data imputation
+- categorical variable encoding
+- numerical variable transformation
+- distretisation
+- outlier handling
+- feature scaling
+- others
+
+after above processes, we may end up with a lengthy notebook, which is
+- hard to understand
+- hard to reproduce
+- hard to socre new data
+- hard to deploy
+
+so we need feature engineering pipeline
+
+pipeline example:
+
+# train the pipeline
+price_pipe.fix(X_train,y_train)
+
+# score data
+price_pipe.transform(X_train)
+price_pipe.transform(X_test)
+price_pipe.transform(live_data
+
+
