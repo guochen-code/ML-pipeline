@@ -1,0 +1,54 @@
+missing data imputation
+- SimpleImputer
+
+categorical variable encoding
+- OneHotEncoder
+- Label Encoder
+
+discretisation
+- KBinsDiscretizer
+
+variable transformation
+- PowerTransformer
+- Function Transformer
+
+Scaling
+- StandardScaler
+- MinMaxScaler
+- RobustScaler
+- Normalizer
+
+********************************************************************************************************************************************************
+feature-enginer transformers
+
+missing data imputation
+- MeanMedianImputer
+- RandomSampleImputer
+- EndTrainImputer
+- AddNaNBinaryImputer
+- CategoricalVariableImputer
+- FrequentCategoryImputer
+
+catergorical variable encoding
+- CountFrequencyCategoricalEncoder
+- OrdinalCategoricalEncoder
+- MeanCategoricalEncoder
+- WoERatioCategoricalEncoder
+- OneHotCategoricalEncoder
+- RareLabelCategoricalEncoder
+
+Outlier Removel
+- Windsorizer
+- ArbitraryOutlierCapper
+
+Discretisation
+- EqualFrequencyDiscretiser
+- EqualWidthDiscretiser
+- DecisionTree Discretiser
+
+Variable transformation
+- LogTransformer
+- ReciprocalTransformer
+- PowerTransformer
+- BoxCoxTransformer
+
