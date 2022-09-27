@@ -1,0 +1,7 @@
+step-1:
+have all the feature engineering steps in 1 pipeline
+
+step-2:
+- add scaler, feature selection and model to the pipeline
+- produce a final pipeline only with the selected features
+
